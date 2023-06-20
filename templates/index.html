@@ -1,0 +1,85 @@
+
+<!doctype html>
+<html>
+    <head> <title>
+        
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+   <body onload="clearInputFields()">
+    <header>
+        <a href="#" class="logo">Resume Rev</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            
+        </ul>
+    </header>
+    <section>
+       
+        <img src="{{ url_for('static', filename='images/stars.png') }}" id="stars">
+        
+        <img src="{{ url_for('static', filename='images/moon.png') }}" id="moon">
+        
+        <img src="{{ url_for('static', filename='images/mountains_behind.png') }}" id="mountains_behind">
+        <h2 id="text">ATS Evader</h2>
+        <a href="#sec" id="btn">Explore</a>
+        
+        <img src="{{ url_for('static', filename='images/mountains_front.png') }}" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        
+        <p>"Hey, you know how frustrating it is when you send out tons of resumes and get zero responses? Well, I've been working on this cool new app that can change the game. It's like your personal hack into the job application system.<br>
+
+            <br>You know how companies use this software, ATS, to sort through resumes? They're like robots that look for specific words and phrases, and if they don't find them, your resume gets dumped. That's where my app comes in.<br>
+            
+           <br> You just plug in your resume and the link to the job you're interested in. The app then does a bit of detective work and finds all the important keywords from the job description. It's got a bit of a magic trick, too - it takes those keywords and invisibly embeds them into your resume. It's like giving your resume a secret code that only the ATS can see.<br>
+            
+           <br> So, when the company robot scans your resume, it finds the secret code, gives it the green light, and voila, your resume gets through to an actual human! Pretty cool, huh?<br>
+            
+            <br>The thing is, it's not about tricking the system. It's about making sure good candidates aren't overlooked just because they didn't use some specific phrase or word. It's about making the job search a bit fairer, you know?<br>
+            
+            <br>And, of course, after the app helps you get past the ATS, you still need to ace the interview with your charm and skills. But at least with this, you've got a fighting chance to get to that stage. I'm really excited about this, man, feels like it could genuinely help a lot of people."</p>
+        <div class="container">
+            <h2>Try it </h2>
+            <form method="POST" action="/" enctype="multipart/form-data">
+                <div class="inputBox"><label for="url">  Enter  URL:</label><br>
+                    <input type="text" id="url" name="url"><br></div>
+                <div class="inputBox"><label for="file"></label><br>
+                    <input type="file" id="file" name="file"><br></div>
+                <div class="inputBox"><input type="submit" value="Submit"></div>
+            </form>
+        </div>
+        
+    </div>
+    <script>
+        let stars=document.getElementById('stars');
+        let moon=document.getElementById('moon');
+        let mountains_behind=document.getElementById('mountains_behind');
+        let mountains_front=document.getElementById('mountains_front');
+        let text=document.getElementById('text');
+        let btn=document.getElementById('btn');
+
+        window.addEventListener('scroll', function(){
+            let value=window.scrollY;
+            stars.style.left=value*0.25+"px";
+            moon.style.top=value*1.05+"px";
+            mountains_behind.style.top=value*0.5+'px';
+            mountains_front.style.top=value*0+'px;'
+            btn.style.marginTop=value*1+'px';
+            text.style.marginRight=value*1.5+'px';
+            text.style.marginTop=value*1.5+'px';
+            
+            
+        })
+        function clearInputFields() {
+            var inputs = document.getElementsByTagName('input');
+            for(var i = 0; i < inputs.length; i++) {
+                if(inputs[i].type == 'text') {
+                    inputs[i].value = '';
+                }
+            }
+        }
+        
+    </script>
+   </body>
+</html> 
